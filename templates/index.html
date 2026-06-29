@@ -204,6 +204,67 @@
                 <path d="M 90 30 L 130 30 L 150 50 L 150 120" class="schematic-bg" id="circuit-flow" stroke-dasharray="6, 6"/>
                 <circle cx="150" cy="120" r="3" fill="#00e5ff" />
             </g>
+
+            <!-- 8086 Microprocessor (DIP-40) -->
+            <g transform="translate(40, 470)" class="mobile-hide-doodle">
+                <rect x="0" y="0" width="140" height="40" rx="3" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3" stroke-width="1.5"/>
+                <!-- Notch -->
+                <path d="M 0 15 Q 5 20 0 25" fill="none" stroke="#00e5ff" stroke-opacity="0.3"/>
+                <!-- Text label -->
+                <text x="35" y="25" fill="#00e5ff" fill-opacity="0.4" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="bold" letter-spacing="1">i8086</text>
+                <!-- Top Pins -->
+                <path d="M 10 -6 V 0 M 20 -6 V 0 M 30 -6 V 0 M 40 -6 V 0 M 50 -6 V 0 M 60 -6 V 0 M 70 -6 V 0 M 80 -6 V 0 M 90 -6 V 0 M 100 -6 V 0 M 110 -6 V 0 M 120 -6 V 0 M 130 -6 V 0" class="schematic-bg" />
+                <!-- Bottom Pins -->
+                <path d="M 10 40 V 46 M 20 40 V 46 M 30 40 V 46 M 40 40 V 46 M 50 40 V 46 M 60 40 V 46 M 70 40 V 46 M 80 40 V 46 M 90 40 V 46 M 100 40 V 46 M 110 40 V 46 M 120 40 V 46 M 130 40 V 46" class="schematic-bg" />
+            </g>
+
+            <!-- Arduino Uno Board Outline -->
+            <g transform="translate(240, 360)" class="mobile-hide-doodle">
+                <!-- PCB base -->
+                <rect x="0" y="0" width="100" height="70" rx="6" fill="#08090c" stroke="#00e5ff" stroke-opacity="0.2" stroke-width="1.5"/>
+                <!-- USB Port -->
+                <rect x="-12" y="10" width="15" height="15" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3"/>
+                <!-- Power Jack -->
+                <rect x="-8" y="40" width="12" height="18" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3"/>
+                <!-- ATmega328P Chip -->
+                <rect x="40" y="38" width="45" height="14" rx="2" fill="#101216" stroke="#00e5ff" stroke-opacity="0.4"/>
+                <!-- Digital Headers -->
+                <line x1="15" y1="3" x2="85" y2="3" stroke="#00e5ff" stroke-opacity="0.3" stroke-dasharray="2, 2" stroke-width="3"/>
+                <!-- Analog Headers -->
+                <line x1="35" y1="67" x2="85" y2="67" stroke="#00e5ff" stroke-opacity="0.3" stroke-dasharray="2, 2" stroke-width="3"/>
+                <!-- Label -->
+                <text x="18" y="32" fill="#00e5ff" fill-opacity="0.2" font-family="sans-serif" font-size="8" font-weight="bold">UNO</text>
+            </g>
+
+            <!-- ESP32 IoT Module -->
+            <g transform="translate(240, 485)" class="mobile-hide-doodle">
+                <!-- Shielding metal cover -->
+                <rect x="0" y="0" width="50" height="60" rx="3" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3" stroke-width="1.5"/>
+                <!-- PCB Antenna (top) -->
+                <rect x="0" y="-15" width="50" height="15" fill="#0c2025" stroke="#00e5ff" stroke-opacity="0.3"/>
+                <path d="M 5 -10 H 45 M 45 -10 V -5 H 25 V -10 H 5 V -5 H 15" stroke="#00e5ff" stroke-opacity="0.5" stroke-width="1" fill="none"/>
+                <!-- Connections / Pads -->
+                <path d="M -5 10 H 0 M -5 20 H 0 M -5 30 H 0 M -5 40 H 0 M -5 50 H 0" class="schematic-bg" />
+                <path d="M 50 10 H 55 M 50 20 H 55 M 50 30 H 55 M 50 40 H 55 M 50 50 H 55" class="schematic-bg" />
+                <!-- Label -->
+                <text x="8" y="35" fill="#00e5ff" fill-opacity="0.3" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="9">ESP32</text>
+            </g>
+
+            <!-- Ultrasonic Sensor (HC-SR04) -->
+            <g transform="translate(100, 580)" class="mobile-hide-doodle">
+                <!-- Board -->
+                <rect x="0" y="0" width="90" height="35" rx="3" fill="#08090c" stroke="#00e5ff" stroke-opacity="0.25" stroke-width="1.2"/>
+                <!-- Receiver (Left eye) -->
+                <circle cx="22" cy="17" r="12" fill="#101216" stroke="#00e5ff" stroke-opacity="0.4" stroke-width="1.5"/>
+                <circle cx="22" cy="17" r="7" fill="none" stroke="#00e5ff" stroke-opacity="0.2" stroke-width="1"/>
+                <text x="18" y="20" fill="#00e5ff" fill-opacity="0.3" font-size="8" font-family="sans-serif">T</text>
+                <!-- Transmitter (Right eye) -->
+                <circle cx="68" cy="17" r="12" fill="#101216" stroke="#00e5ff" stroke-opacity="0.4" stroke-width="1.5"/>
+                <circle cx="68" cy="17" r="7" fill="none" stroke="#00e5ff" stroke-opacity="0.2" stroke-width="1"/>
+                <text x="64" y="20" fill="#00e5ff" fill-opacity="0.3" font-size="8" font-family="sans-serif">R</text>
+                <!-- Header pins -->
+                <path d="M 45 35 V 42 M 48 35 V 42 M 51 35 V 42 M 54 35 V 42" class="schematic-bg" />
+            </g>
         </svg>
 
         <!-- Top Header -->

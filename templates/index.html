@@ -306,6 +306,39 @@
                 <!-- Header pins -->
                 <path d="M 45 35 V 42 M 48 35 V 42 M 51 35 V 42 M 54 35 V 42" class="schematic-bg" />
             </g>
+
+            <!-- Arduino Nano -->
+            <g transform="translate(450, 140)" class="mobile-hide-doodle">
+                <rect x="0" y="0" width="30" height="70" rx="3" fill="#08090c" stroke="#00e5ff" stroke-opacity="0.3" stroke-width="1.2"/>
+                <!-- Mini USB Port -->
+                <rect x="7" y="-8" width="16" height="8" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3"/>
+                <!-- Main IC (ATMega328P QFN) -->
+                <rect x="8" y="25" width="14" height="14" rx="1" fill="#101216" stroke="#00e5ff" stroke-opacity="0.4"/>
+                <!-- Pin headers left and right -->
+                <line x1="2" y1="5" x2="2" y2="65" stroke="#00e5ff" stroke-opacity="0.3" stroke-dasharray="2, 2" stroke-width="2.5"/>
+                <line x1="28" y1="5" x2="28" y2="65" stroke="#00e5ff" stroke-opacity="0.3" stroke-dasharray="2, 2" stroke-width="2.5"/>
+                <text x="5" y="55" fill="#00e5ff" fill-opacity="0.2" font-size="7" font-weight="bold" transform="rotate(-90, 5, 55)">NANO</text>
+            </g>
+
+            <!-- Arduino Mega -->
+            <g transform="translate(210, 580)" class="mobile-hide-doodle">
+                <!-- Long PCB base -->
+                <rect x="0" y="0" width="140" height="70" rx="6" fill="#08090c" stroke="#00e5ff" stroke-opacity="0.2" stroke-width="1.5"/>
+                <!-- USB Port -->
+                <rect x="-12" y="10" width="15" height="15" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3"/>
+                <!-- Power Jack -->
+                <rect x="-8" y="40" width="12" height="18" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3"/>
+                <!-- ATmega2560 main chip (large square QFP) -->
+                <rect x="50" y="25" width="22" height="22" rx="2" fill="#101216" stroke="#00e5ff" stroke-opacity="0.4"/>
+                <!-- Digital Headers (top long) -->
+                <line x1="15" y1="3" x2="125" y2="3" stroke="#00e5ff" stroke-opacity="0.3" stroke-dasharray="2, 2" stroke-width="3"/>
+                <!-- Double Header Block (Right edge) -->
+                <rect x="132" y="10" width="5" height="50" fill="none" stroke="#00e5ff" stroke-opacity="0.3" stroke-dasharray="2, 2" stroke-width="2"/>
+                <!-- Analog Headers (bottom) -->
+                <line x1="45" y1="67" x2="105" y2="67" stroke="#00e5ff" stroke-opacity="0.3" stroke-dasharray="2, 2" stroke-width="3"/>
+                <!-- Label -->
+                <text x="18" y="32" fill="#00e5ff" fill-opacity="0.2" font-family="sans-serif" font-size="8" font-weight="bold">MEGA</text>
+            </g>
         </svg>
 
         <!-- Top Header -->

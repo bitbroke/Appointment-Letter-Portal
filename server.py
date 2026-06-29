@@ -11,8 +11,8 @@ from pydantic import BaseModel
 
 app = FastAPI(title="VITronix Appointment Portal")
 
-# Load excel data
-EXCEL_PATH = "members.xlsx"
+# Load CSV data
+CSV_PATH = "members.csv"
 TEMPLATE_PATH = "template.pdf"
 LOGO_PATH = "logo.jpeg"
 
@@ -29,9 +29,9 @@ def extract_reg_no(email):
     return ""
 
 def load_members():
-    if not os.path.exists(EXCEL_PATH):
+    if not os.path.exists(CSV_PATH):
         return None
-    df = pd.read_excel(EXCEL_PATH)
+    df = pd.read_csv(CSV_PATH)
     df['Name_Clean'] = df['Name'].astype(str).str.strip().str.lower()
     df['Team_Clean'] = df['Team'].astype(str).str.strip().str.lower()
     df['Reg_No'] = df['Email ID'].apply(extract_reg_no)

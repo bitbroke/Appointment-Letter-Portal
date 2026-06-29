@@ -34,11 +34,11 @@ def extract_reg_no(email):
                 return part.upper()
     return ""
 
-# Load excel data
+# Load CSV data
 @st.cache_data
 def load_data():
-    if os.path.exists("members.xlsx"):
-        df = pd.read_excel("members.xlsx")
+    if os.path.exists("members.csv"):
+        df = pd.read_csv("members.csv")
         # Clean columns
         df['Name_Clean'] = df['Name'].astype(str).str.strip().str.lower()
         df['Team_Clean'] = df['Team'].astype(str).str.strip().str.lower()
@@ -166,7 +166,7 @@ if df is not None:
                 else:
                     st.error("Verification failed. Please ensure the Name, Team, and Registration Number/Email match exactly with your club registration details.")
 else:
-    st.error("Excel sheet 'members.xlsx' not found. Please ensure it is present in the workspace.")
+    st.error("CSV file 'members.csv' not found. Please ensure it is present in the workspace.")
 
 # Elegant footer with electronics theme
 st.markdown("""

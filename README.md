@@ -22,7 +22,7 @@ A minimal, professional, responsive web application for the core members of the 
 
 ```
 ├── server.py              # FastAPI server containing matching logic and PDF builder
-├── members.xlsx           # Official member directory
+├── members.csv            # Official member directory (CSV format for easy GitHub edits)
 ├── template.pdf           # Original appointment letter PDF template
 ├── logo.jpeg              # Official VITronix logo
 ├── templates/
@@ -62,5 +62,5 @@ A minimal, professional, responsive web application for the core members of the 
 
 ## Development Guidelines
 
-- The application uses `members.xlsx` for credentials verification. Do not alter the structure of columns (`Name`, `Team`, `Email ID`, `Position`).
+- The application uses `members.csv` for credentials verification. Do not alter the structure of columns (`Name`, `Team`, `Email ID`, `Position`). You can easily edit this file directly on GitHub.
 - PDF generation uses temporary path-based writing to avoid stream lockups during concurrent downloads.

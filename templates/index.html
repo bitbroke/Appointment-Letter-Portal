@@ -152,6 +152,19 @@
         
         <!-- Animated Electronics Doodles Background Inside Left Column -->
         <svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Complex Background PCB trace network -->
+            <g stroke="#00e5ff" stroke-opacity="0.08" stroke-width="1.2" fill="none" class="mobile-hide-doodle">
+                <path d="M 15 15 H 480 V 820 H 15 Z" />
+                <path d="M 30 30 L 70 70 H 150 L 170 90 V 220 L 200 250 H 320 L 350 280 V 420 L 380 450 H 450" />
+                <path d="M 450 30 L 410 70 H 350 L 330 90 V 200 L 300 230 H 150 L 120 260 V 500" />
+                <path d="M 30 790 L 70 750 H 220 L 240 730 V 620 L 270 590 H 450" />
+                <circle cx="70" cy="70" r="2.5" fill="#00e5ff" fill-opacity="0.15"/>
+                <circle cx="150" cy="70" r="2.5" fill="#00e5ff" fill-opacity="0.15"/>
+                <circle cx="350" cy="280" r="2.5" fill="#00e5ff" fill-opacity="0.15"/>
+                <circle cx="300" cy="230" r="2.5" fill="#00e5ff" fill-opacity="0.15"/>
+                <circle cx="220" cy="750" r="2.5" fill="#00e5ff" fill-opacity="0.15"/>
+            </g>
+
             <!-- Grid reference dots -->
             <circle cx="50" cy="150" r="1" fill="#00e5ff" opacity="0.3"/>
             <circle cx="150" cy="150" r="1" fill="#00e5ff" opacity="0.3"/>
@@ -176,6 +189,28 @@
                 <path d="M 20 10 L 40 20 L 20 30 Z" class="schematic-bg" />
                 <!-- LED Light emission arrows -->
                 <path d="M 28 5 L 18 -5 M 33 0 L 23 -10" class="schematic-bg" />
+            </g>
+
+            <!-- QFP-44 Microchip -->
+            <g transform="translate(340, 40)" class="mobile-hide-doodle">
+                <rect x="0" y="0" width="50" height="50" rx="4" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3" stroke-width="1.5"/>
+                <!-- Top pins -->
+                <path d="M 5 -6 V 0 M 10 -6 V 0 M 15 -6 V 0 M 20 -6 V 0 M 25 -6 V 0 M 30 -6 V 0 M 35 -6 V 0 M 40 -6 V 0 M 45 -6 V 0" class="schematic-bg" />
+                <!-- Bottom pins -->
+                <path d="M 5 50 V 56 M 10 50 V 56 M 15 50 V 56 M 20 50 V 56 M 25 50 V 56 M 30 50 V 56 M 35 50 V 56 M 40 50 V 56 M 45 50 V 56" class="schematic-bg" />
+                <!-- Left pins -->
+                <path d="M -6 5 H 0 M -6 10 H 0 M -6 15 H 0 M -6 20 H 0 M -6 25 H 0 M -6 30 H 0 M -6 35 H 0 M -6 40 H 0 M -6 45 H 0" class="schematic-bg" />
+                <!-- Right pins -->
+                <path d="M 50 5 H 56 M 50 10 H 56 M 50 15 H 56 M 50 20 H 56 M 50 25 H 56 M 50 30 H 56 M 50 35 H 56 M 50 40 H 56 M 50 45 H 56" class="schematic-bg" />
+                <circle cx="5" cy="5" r="1.5" fill="#00e5ff" opacity="0.5"/>
+            </g>
+
+            <!-- 7-Segment Display -->
+            <g transform="translate(30, 310)" class="mobile-hide-doodle">
+                <rect x="0" y="0" width="35" height="50" rx="3" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3" stroke-width="1.2"/>
+                <!-- Segments displaying 8 -->
+                <path d="M 10 10 H 25 M 10 25 H 25 M 10 40 H 25 M 10 10 V 25 M 25 10 V 25 M 10 25 V 40 M 25 25 V 40" stroke="#00e5ff" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <circle cx="29" cy="40" r="1.5" fill="#00e5ff" opacity="0.6"/>
             </g>
 
             <!-- Transistor Doodle Schematic -->
@@ -250,6 +285,13 @@
                 <text x="8" y="35" fill="#00e5ff" fill-opacity="0.3" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="9">ESP32</text>
             </g>
 
+            <!-- RF Antenna (Wi-Fi) -->
+            <g transform="translate(340, 580)" class="mobile-hide-doodle">
+                <path d="M 15 40 V 10 M 15 10 L 5 0 H 25 Z M 15 15 C 20 15 25 10 25 5 M 15 20 C 25 20 30 10 30 0 M 15 25 C 30 25 35 10 35 -5" stroke="#00e5ff" stroke-opacity="0.3" stroke-width="1.2" fill="none"/>
+                <rect x="5" y="40" width="20" height="15" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3"/>
+                <text x="8" y="51" fill="#00e5ff" fill-opacity="0.3" font-size="8">RF</text>
+            </g>
+
             <!-- Ultrasonic Sensor (HC-SR04) -->
             <g transform="translate(100, 580)" class="mobile-hide-doodle">
                 <!-- Board -->
@@ -268,11 +310,11 @@
         </svg>
 
         <!-- Top Header -->
-        <div class="z-10 flex items-center space-x-3 logo-container">
-            <img src="/logo.jpeg" alt="VITronix Logo" class="h-12 w-12 object-contain rounded-lg border border-glassBorder shadow-md">
+        <div class="z-10 flex items-center space-x-5 logo-container pt-4">
+            <img src="/logo.jpeg" alt="VITronix Logo" class="h-24 w-24 object-contain rounded-xl border-2 border-glassBorder shadow-xl">
             <div>
-                <h1 class="font-space font-bold text-lg tracking-tight text-white uppercase">VITronix</h1>
-                <p class="text-[10px] text-cyanDetail tracking-widest font-semibold uppercase">Join the Robolution</p>
+                <h1 class="font-space font-bold text-4xl tracking-tight text-white uppercase">VITronix</h1>
+                <p class="text-sm text-cyanDetail tracking-widest font-bold uppercase mt-1">Join the Robolution</p>
             </div>
         </div>
 

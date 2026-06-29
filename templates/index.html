@@ -148,10 +148,10 @@
     <div class="tech-grid"></div>
 
     <!-- LEFT COLUMN: Brand, Schematic Graphics, Logo -->
-    <div class="w-full md:w-1/2 min-h-[300px] md:h-full bg-black/40 border-b md:border-b-0 md:border-r border-glassBorder flex flex-col justify-between p-6 md:p-10 relative overflow-hidden">
+    <div class="w-full md:w-1/2 min-h-fit md:h-full bg-black/40 border-b md:border-b-0 md:border-r border-glassBorder flex flex-col justify-between p-6 md:p-10 relative overflow-hidden">
         
         <!-- Animated Electronics Doodles Background Inside Left Column -->
-        <svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="hidden md:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 500 850" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
             <!-- Complex Background PCB trace network -->
             <g stroke="#00e5ff" stroke-opacity="0.08" stroke-width="1.2" fill="none" class="mobile-hide-doodle">
                 <path d="M 15 15 H 480 V 820 H 15 Z" />
@@ -328,7 +328,7 @@
     </div>
 
     <!-- RIGHT COLUMN: Verification Form & Success State -->
-    <div class="w-full md:w-1/2 min-h-[calc(100vh-300px)] md:h-full bg-darkBg flex flex-col justify-center p-6 md:p-12 relative overflow-y-auto">
+    <div class="w-full md:w-1/2 min-h-fit md:h-full bg-darkBg flex flex-col justify-center p-6 md:py-16 md:px-12 relative overflow-y-auto">
         <div class="w-full max-w-md mx-auto space-y-0" id="main-content">
             
             <div id="form-container" class="space-y-4">

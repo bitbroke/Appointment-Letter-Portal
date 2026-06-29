@@ -1,6 +1,7 @@
 import os
 import re
 import io
+import tempfile
 import fitz  # PyMuPDF
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Response
@@ -149,14 +150,15 @@ def download_pdf(name: str, team: str, reg_no: str):
         page.insert_htmlbox(rect, html_text, css=css_style)
         
         temp_filename = f"temp_{member_name.replace(' ', '_')}.pdf"
-        doc.save(temp_filename)
+        temp_filepath = os.path.join(tempfile.gettempdir(), temp_filename)
+        doc.save(temp_filepath)
         doc.close()
         
-        with open(temp_filename, "rb") as f:
+        with open(temp_filepath, "rb") as f:
             pdf_bytes = f.read()
             
         try:
-            os.remove(temp_filename)
+            os.remove(temp_filepath)
         except:
             pass
         

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITronix - Member Verification</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyanDetail: '#00e5ff',
+                        darkBg: '#08090c',
+                        darkCard: '#101216',
+                        glassBorder: 'rgba(0, 229, 255, 0.15)',
+                    },
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        space: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #08090c;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                overflow: hidden;
+                height: 100vh;
+            }
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .tech-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 229, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.015) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -3;
+            pointer-events: none;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #00e5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-cyan {
+            background: #00e5ff;
+            color: #08090c;
+            font-weight: 700;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0, 229, 255, 0.2);
+        }
+
+        .btn-cyan:hover {
+            background: #00b4cc;
+            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-cyan:active {
+            transform: translateY(1px);
+        }
+
+        .input-dark {
+            background-color: #12151b;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            color: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .input-dark:focus {
+            border-color: #00e5ff;
+            box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.15);
+            outline: none;
+        }
+
+        .schematic-bg {
+            stroke: #00e5ff;
+            stroke-opacity: 0.25;
+            stroke-width: 1;
+            fill: none;
+        }
+
+        .doodle-active {
+            stroke-opacity: 0.6;
+            filter: drop-shadow(0px 0px 4px rgba(0, 229, 255, 0.5));
+        }
+
+        .spinner {
+            border: 2px solid rgba(0, 229, 255, 0.1);
+            border-top: 2px solid #00e5ff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 767px) {
+            .mobile-hide-doodle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="relative flex flex-col md:flex-row min-h-screen md:h-screen w-screen p-0 m-0">
+
+    <div class="ambient-glow top-0 left-0"></div>
+    <div class="ambient-glow bottom-0 right-0"></div>
+    <div class="tech-grid"></div>
+
+    <!-- LEFT COLUMN: Brand, Schematic Graphics, Logo -->
+    <div class="w-full md:w-1/2 min-h-[300px] md:h-full bg-black/40 border-b md:border-b-0 md:border-r border-glassBorder flex flex-col justify-between p-6 md:p-10 relative overflow-hidden">
+        
+        <!-- Animated Electronics Doodles Background Inside Left Column -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grid reference dots -->
+            <circle cx="50" cy="150" r="1" fill="#00e5ff" opacity="0.3"/>
+            <circle cx="150" cy="150" r="1" fill="#00e5ff" opacity="0.3"/>
+            <circle cx="250" cy="150" r="1" fill="#00e5ff" opacity="0.3"/>
+            
+            <!-- Resistor Doodle Schematic -->
+            <path d="M 50 150 L 120 150 L 125 140 L 135 160 L 145 140 L 155 160 L 165 140 L 175 160 L 180 150 L 250 150" class="schematic-bg" />
+            <circle cx="120" cy="150" r="2" fill="#00e5ff" opacity="0.5"/>
+            <circle cx="180" cy="150" r="2" fill="#00e5ff" opacity="0.5"/>
+            
+            <!-- Capacitor Doodle Schematic -->
+            <path d="M 350 100 L 400 100 M 400 80 L 400 120 M 410 80 L 410 120 M 410 100 L 460 100" class="schematic-bg" />
+            
+            <!-- Microchip Centerpiece -->
+            <g transform="translate(100, 350)" class="mobile-hide-doodle">
+                <rect x="0" y="0" width="80" height="80" rx="6" fill="#101216" stroke="#00e5ff" stroke-opacity="0.3" stroke-width="1.5"/>
+                <!-- Pins -->
+                <path d="M -10 15 H 0 M -10 30 H 0 M -10 45 H 0 M -10 60 H 0" class="schematic-bg" />
+                <path d="M 80 15 H 90 M 80 30 H 90 M 80 45 H 90 M 80 60 H 90" class="schematic-bg" />
+                <path d="M 15 -10 V 0 M 30 -10 V 0 M 45 -10 V 0 M 60 -10 V 0" class="schematic-bg" />
+                <path d="M 15 80 V 90 M 30 80 V 90 M 45 80 V 90 M 60 80 V 90" class="schematic-bg" />
+                <!-- Trace connections -->
+                <path d="M 90 30 L 130 30 L 150 50 L 150 120" class="schematic-bg" id="circuit-flow" stroke-dasharray="6, 6"/>
+                <circle cx="150" cy="120" r="3" fill="#00e5ff" />
+            </g>
+        </svg>
+
+        <!-- Top Header -->
+        <div class="z-10 flex items-center space-x-3 logo-container">
+            <img src="/logo.jpeg" alt="VITronix Logo" class="h-12 w-12 object-contain rounded-lg border border-glassBorder shadow-md">
+            <div>
+                <h1 class="font-space font-bold text-lg tracking-tight text-white uppercase">VITronix</h1>
+                <p class="text-[10px] text-cyanDetail tracking-widest font-semibold uppercase">Join the Robolution</p>
+            </div>
+        </div>
+
+        <!-- Left Column Center: Large Minimal Branding -->
+        <div class="my-auto z-10 max-w-sm left-title-container">
+            <h2 class="text-4xl md:text-5xl font-space font-bold tracking-tight text-white mb-2 leading-none">Member<br><span class="gradient-text">Verification</span></h2>
+            <p class="text-xs text-gray-500 font-medium tracking-wide uppercase">VITronix Club Appointment Letters Portal</p>
+        </div>
+
+        
+    </div>
+
+    <!-- RIGHT COLUMN: Verification Form & Success State -->
+    <div class="w-full md:w-1/2 min-h-[calc(100vh-300px)] md:h-full bg-darkBg flex flex-col justify-center p-6 md:p-12 relative overflow-y-auto">
+        <div class="w-full max-w-md mx-auto space-y-0" id="main-content">
+            
+            <div id="form-container" class="space-y-4">
+                <div class="space-y-1">
+                    <h3 class="text-xl font-space font-bold text-white tracking-tight">Access Appointment Letter</h3>
+                    <p class="text-xs text-gray-500 font-medium">Verify your registration details to retrieve your custom document.</p>
+                </div>
+
+                <div class="space-y-4 pt-2">
+                    <div>
+                        <label class="block text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-1.5">Full Name</label>
+                        <input type="text" id="full-name" placeholder="Name as in Form" class="w-full input-dark rounded-lg px-3.5 py-2.5 text-sm font-medium">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-1.5">Select Team</label>
+                        <div class="relative">
+                            <select id="team-select" class="w-full input-dark rounded-lg px-3.5 py-2.5 text-sm font-medium appearance-none">
+                                <option value="">-- Select Team --</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-cyanDetail">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-1.5">Registration Number / Email Address</label>
+                        <input type="text" id="reg-no" placeholder="e.g. 24BCE10454" class="w-full input-dark rounded-lg px-3.5 py-2.5 text-sm font-medium">
+                    </div>
+
+                    <div id="error-message" class="text-red-400 text-xs font-semibold hidden bg-red-950/20 border border-red-900/30 p-2.5 rounded-lg"></div>
+
+                    <button id="verify-btn" class="w-full btn-cyan py-3 px-6 rounded-lg text-sm tracking-wider uppercase font-bold flex items-center justify-center space-x-2">
+                        <span>Verify Credentials</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Success State Container (hidden initially) -->
+            <div id="success-container" class="hidden space-y-5">
+                <div class="flex items-center space-x-3 bg-cyan-950/10 border border-cyanDetail/20 p-4 rounded-xl">
+                    <div class="w-8 h-8 rounded-full bg-cyanDetail/10 flex items-center justify-center text-cyanDetail flex-shrink-0">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white font-space">Verification Complete</h4>
+                        <p class="text-xs text-gray-400">Credentials matched with official club database.</p>
+                    </div>
+                </div>
+
+                <div class="p-5 bg-darkCard border border-glassBorder rounded-xl space-y-3">
+                    <div class="border-b border-gray-800/80 pb-2">
+                        <div class="text-[9px] font-bold text-gray-500 uppercase tracking-wider">Position</div>
+                        <div id="member-role" class="text-white font-bold text-base font-space">Appointed Lead</div>
+                    </div>
+                    <div>
+                        <div class="text-[9px] font-bold text-gray-500 uppercase tracking-wider">Domain</div>
+                        <div id="member-team" class="text-cyanDetail font-semibold text-sm">Team Name</div>
+                    </div>
+                </div>
+
+                <a id="download-btn" href="#" class="w-full btn-cyan py-3.5 px-6 rounded-lg text-sm tracking-wider uppercase font-bold flex items-center justify-center space-x-2">
+                    <span>Download Appointment Letter</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- GSAP Animations & Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Load teams
+            const teamSelect = document.getElementById('team-select');
+            try {
+                const response = await fetch('/api/teams');
+                const teams = await response.json();
+                teams.forEach(team => {
+                    const opt = document.createElement('option');
+                    opt.value = team;
+                    opt.textContent = team;
+                    teamSelect.appendChild(opt);
+                });
+            } catch (err) {
+                console.error("Failed to load teams", err);
+            }
+
+            // GSAP Entrance Animations
+            const tl = gsap.timeline({ defaults: { ease: 'power3.out' }});
+            tl.from('.logo-container', { duration: 0.6, y: -20, opacity: 0 })
+              .from('.left-title-container', { duration: 0.6, x: -35, opacity: 0 }, '-=0.3')
+              .from('#main-content', { duration: 0.6, y: 30, opacity: 0 }, '-=0.4');
+
+            // Circuit Flow Loop animation
+            gsap.fromTo('#circuit-flow', 
+                { strokeDashoffset: 12 }, 
+                { strokeDashoffset: 0, duration: 1.5, repeat: -1, ease: 'none' }
+            );
+
+            // Form Logic
+            const verifyBtn = document.getElementById('verify-btn');
+            const errorEl = document.getElementById('error-message');
+            let pdfBlob = null;
+
+            verifyBtn.addEventListener('click', async () => {
+                const name = document.getElementById('full-name').value.trim();
+                const team = teamSelect.value;
+                const regNo = document.getElementById('reg-no').value.trim();
+
+                errorEl.classList.add('hidden');
+
+                if (!name || !team || !regNo) {
+                    errorEl.textContent = "All credentials are required.";
+                    errorEl.classList.remove('hidden');
+                    return;
+                }
+
+                verifyBtn.disabled = true;
+                const originalContent = verifyBtn.innerHTML;
+                verifyBtn.innerHTML = `<div class="spinner"></div><span>Verifying...</span>`;
+
+                try {
+                    const res = await fetch('/api/verify', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ name, team, reg_no: regNo })
+                    });
+
+                    if (!res.ok) {
+                        const err = await res.json();
+                        throw new Error(err.detail || "Authentication failed.");
+                    }
+
+                    const result = await res.json();
+                    console.log("Verification successful. Result:", result);
+                    
+                    // Set download link directly
+                    document.getElementById('download-btn').href = `/api/download?name=${encodeURIComponent(name)}&team=${encodeURIComponent(team)}&reg_no=${encodeURIComponent(regNo)}`;
+                    
+                    gsap.to('#form-container', {
+                        duration: 0.3,
+                        opacity: 0,
+                        y: -10,
+                        onComplete: () => {
+                            document.getElementById('form-container').classList.add('hidden');
+                            document.getElementById('member-team').textContent = result.team;
+                            document.getElementById('member-role').textContent = result.position;
+                            
+                            const successCont = document.getElementById('success-container');
+                            successCont.classList.remove('hidden');
+                            gsap.fromTo(successCont, 
+                                { opacity: 0, y: 10 }, 
+                                { opacity: 1, y: 0, duration: 0.3 }
+                            );
+                        }
+                    });
+
+                } catch (err) {
+                    console.error("Verification error:", err);
+                    errorEl.textContent = err.message;
+                    errorEl.classList.remove('hidden');
+                    gsap.fromTo(errorEl, { x: -8 }, { x: 0, duration: 0.25, ease: 'power2.out' });
+                } finally {
+                    verifyBtn.disabled = false;
+                    verifyBtn.innerHTML = originalContent;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
